@@ -115,11 +115,12 @@
 {% endif %}
 
 {% if page.url %}
-  {% unless page.path contains 'amp/' %}
-    <link rel="canonical" href="{{ page.url | replace:'/index.html','/' | absolute_url }}" />
-  {% elsif page.skip_amp %}
+  {% unless absolute_url contains 'amp/' %}
     <link rel="canonical" href="{{ page.url | replace:'/index.html','/' | absolute_url }}" />
   {% endunless %}
+  {% if page.skip_amp %}
+    <link rel="canonical" href="{{ page.url | replace:'/index.html','/' | absolute_url }}" />
+  {% endif %}
   <meta property="og:url" content="{{ page.url | replace:'/index.html','/' | absolute_url }}" />
 {% endif %}
 
