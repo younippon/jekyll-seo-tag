@@ -214,7 +214,10 @@
 {% if seo_page_title %}
     "headline": {{ seo_page_title | jsonify }},
 {% endif %}
-
+"author": {
+  "@type": "Organization",
+  "name": "DeepAge"
+},
 {% if seo_page_image %}
     "image": {{ seo_page_image | jsonify }},
 {% endif %}
